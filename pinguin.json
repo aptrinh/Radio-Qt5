@@ -1,0 +1,62 @@
+[  
+   {  
+      "name":"Pinguin Grooves",
+      "url":"https://samcloud.spacial.com/api/listen?sid=98587&m=sc&rid=174412",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Indie",
+      "url":"https://streams.pinguinradio.com/PinguinRadio320.mp3",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Classics",
+      "url":"https://streams.pinguinradio.com/PinguinClassics192.mp3",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin On The Rocks",
+      "url":"https://streams.pinguinradio.com/PinguinOnTheRocks192.mp3",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Pop",
+      "url":"https://samcloud.spacial.com/api/listen?sid=98586&m=sc&rid=174409",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Pluche",
+      "url":"https://samcloud.spacial.com/api/listen?sid=98569&m=sc&rid=174384",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Aardschok",
+      "url":"https://streams.pinguinradio.com/Aardschok192.mp3",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Ska",
+      "url":"https://19293.live.streamtheworld.com/SP_R2292843_SC",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin Blues",
+      "url":"https://samcloud.spacial.com/api/listen?sid=93462&m=sc&rid=168006",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   },
+   {  
+      "name":"Pinguin World Music",
+      "url":"https://samcloud.spacial.com/api/listen?sid=98570&m=sc&rid=174387",
+      "image":"https://pbs.twimg.com/profile_images/1011919547555868672/r-BPzuFQ_400x400.jpg",
+      "type":"audio"
+   }
+]
