@@ -15,5 +15,8 @@ python pyqtradio.py
 ```
 Included are TuneIn, SomaFM and Pinguin options for easy navigation. You can also upload your own URLs under **playlist** form (.m3u, .xspf, .xml, .pls, etc...)
 
+## TODO
+- Pack everything into binary
+
 ### This Project is licensed under GNU General Public License 3 (GPL-3.0)
 
