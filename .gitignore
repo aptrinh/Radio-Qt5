@@ -1,0 +1,6 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.vscode/
+# Generated after each run
+config.cfg
+favorites.json
