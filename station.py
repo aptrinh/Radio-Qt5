@@ -10,8 +10,8 @@ import json
 import tunein
 import urllib
 import soma
-import plparser
 import platform
+import local
 
 selectXpos = 250
 normalcolor = "#b1b1b1"
@@ -29,6 +29,7 @@ class SelectStation(QDialog):
         self.pinguin_label = self.createLabel(15, 115, normalcolor, "Pinguin", self.pinguin_clicked)
         self.tuneIn_label = self.createLabel(15, 165, normalcolor,"TuneIn", self.tuneIn_clicked)
         self.somafm_label = self.createLabel(15, 215, normalcolor,"SomaFm", self.somafm_clicked)
+        self.local_label = self.createLabel(15, 265, normalcolor, "Local File", self.local_clicked)
         self.readFavorites()
         self.readPinguin()
         self.items = self.favorites
@@ -217,6 +218,16 @@ class SelectStation(QDialog):
         self.menu = "Somafm"
         self.sMenu.setItems(self.items)
         
+    def local_clicked(self):
+        self.changeLabel(self.fav_label, normalcolor, "Favorites")  
+        self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
+        self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
+        self.changeLabel(self.somafm_label, normalcolor, "SomaFm")
+        self.changeLabel(self.local_label, highlight, "Local File")
+        self.items = local.get_stations()
+        self.menu = "Local File"
+        self.sMenu.setItems(self.items)
+
     def addFavorite_clicked(self):
         for item in self.favorites:
             if (item.get("url") == self.playing_url) or  (self.playing_url == ""):

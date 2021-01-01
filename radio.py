@@ -31,7 +31,7 @@ class radio():
         self.menuActive = True
         
         if "arm" in platform.machine():
-            print("ARM Detected, so probably Rapberry")
+            print("ARM Detected, so probably Raspberry")
             import rpi_backlight as bl
             import lircradio
            
@@ -56,10 +56,11 @@ class radio():
             self.LircHandler.addCallback("right", self.right_clicked)
             self.LircHandler.addCallback("power", self.power_clicked)
         else:
-            print("No ARM, so no Rapberry")
+            print("No ARM, so no Raspberry")
             
         self.sDialog = station.SelectStation()
         dia.setStyleSheet("QWidget#Dialog {background-image: url(radio-cropped.png);}")
+        #dia.setStyleSheet("QWidget#Dialog {background-color: black;}")
         self.cDialog = clock.Clock(self)
         
         self.infoTimer = QtCore.QTimer()

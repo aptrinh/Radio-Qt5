@@ -3,7 +3,6 @@ import urllib
 from urllib.request import Request
 from urllib.request import urlopen
 import json
-import plparser
 
 url = "http://api.somafm.com/channels.json"
 
