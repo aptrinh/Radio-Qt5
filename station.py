@@ -14,8 +14,8 @@ import platform
 import local
 
 selectXpos = 250
-normalcolor = "#b1b1b1"
-highlight = "White" 
+normalcolor = "#f9e0c3"
+highlight = "#DAF7A6" 
 
 class SelectStation(QDialog):
     def __init__(self):
@@ -30,6 +30,7 @@ class SelectStation(QDialog):
         self.tuneIn_label = self.createLabel(15, 165, normalcolor,"TuneIn", self.tuneIn_clicked)
         self.somafm_label = self.createLabel(15, 215, normalcolor,"SomaFm", self.somafm_clicked)
         self.local_label = self.createLabel(15, 265, normalcolor, "Local File", self.local_clicked)
+        self.savedLocal_label = self.createLabel(15, 325, normalcolor, "Last Local", self.savedLocal_clicked)
         self.readFavorites()
         self.readPinguin()
         self.items = self.favorites
@@ -238,6 +239,24 @@ class SelectStation(QDialog):
             self.menuActive = None
             self.radio.show()
             self.hide()
+
+    def savedLocal_clicked(self):
+        self.changeLabel(self.fav_label, normalcolor, "Favorites")  
+        self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
+        self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
+        self.changeLabel(self.somafm_label, normalcolor, "SomaFm")
+        self.changeLabel(self.local_label, normalcolor, "Local File")
+        self.items = local.get_savedLocal()
+        if self.items != None:
+            self.menu = "Last Local"
+            self.sMenu.setItems(self.items)
+        else:
+            print("This file is empty/No file")
+            self.radio.showArtist("Empty File")
+            self.menuActive = None
+            self.radio.show()
+            self.hide()
+
 
     def addFavorite_clicked(self):
         for item in self.favorites:

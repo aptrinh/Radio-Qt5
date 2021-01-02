@@ -44,7 +44,12 @@ def get_stations():
    else:
       return None
    
-
+def get_savedLocal():
+   items = []
+   with open ('savedLocal.json') as f:
+      items = json.load(f)
+   return items
+   
 # database = [] 
 # database= get_stations()
 # print(database[0])
