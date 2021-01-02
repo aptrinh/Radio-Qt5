@@ -112,7 +112,7 @@ class radio():
         cfg.set("station", "last_url",  self.lasturl)
         cfg.set("station", "last_name",  self.last_name)
         cfg.set("station", "last_image",  self.last_image)
-        with open("config.cfg", "w") as configfile:
+        with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)
         
         
