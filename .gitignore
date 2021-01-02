@@ -4,3 +4,5 @@ __pycache__/
 # Generated after each run
 config.cfg
 favorites.json
+# Generate after accepting local playlist
+savedLocal.json
