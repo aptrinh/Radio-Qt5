@@ -183,6 +183,7 @@ class SelectStation(QDialog):
         self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
         self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
         self.changeLabel(self.somafm_label, normalcolor, "SomaFm") 
+        self.changeLabel(self.local_label, normalcolor, "Local File")
         self.items = self.favorites
         self.menu = "Favorites"
         self.sMenu.setItems(self.items)
@@ -193,6 +194,7 @@ class SelectStation(QDialog):
         self.changeLabel(self.pinguin_label, highlight, "Pinguin")
         self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
         self.changeLabel(self.somafm_label, normalcolor, "SomaFm") 
+        self.changeLabel(self.local_label, normalcolor, "Local File")
         self.items = self.pinguin
         self.menu = "Pinguin"
         self.sMenu.setItems(self.items)
@@ -204,6 +206,7 @@ class SelectStation(QDialog):
         self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
         self.changeLabel(self.tuneIn_label, highlight, "TuneIn")  
         self.changeLabel(self.somafm_label, normalcolor, "SomaFm") 
+        self.changeLabel(self.local_label, normalcolor, "Local File")
         self.items = self.tuneIn.getOverview()
         self.menu = "tuneIn"
         self.sMenu.setItems(self.items)
@@ -214,6 +217,7 @@ class SelectStation(QDialog):
         self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
         self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
         self.changeLabel(self.somafm_label, highlight, "SomaFm")
+        self.changeLabel(self.local_label, normalcolor, "Local File")
         self.items = soma.get_stations()
         self.menu = "Somafm"
         self.sMenu.setItems(self.items)

@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+import json
 # tkinter solution
 
 def get_playlist():
@@ -9,7 +10,7 @@ def get_playlist():
 
       Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
       filename = askopenfilename(initialdir = "$HOME",title = "Select file",filetypes = (("playlist files","*.xspf"),("all files","*.*"))) # show an "Open" dialog box and return the path to the selected file
-      if not self.filename:
+      if not filename:
          return None
       elif type(filename) == tuple:
          return None
@@ -36,7 +37,9 @@ def get_stations():
          else:
             #print(title.text, location.text)
             items.append({"name":title.text,"url":location.text, "image": "https://i.imgur.com/1zsbpOD.jpg", "type":"audio"})
-
+      # Static file for later use
+      with open('savedLocal.json', 'w') as f:
+         json.dump(items, f)
       return items
    else:
       return None
