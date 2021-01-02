@@ -104,7 +104,7 @@ class SelectStation(QDialog):
                 try:
                     req = urllib.request.urlopen(url)
                     file = req.read()
-                    url = plparser.parse(filename=url, filedata=file).Tracks[0].File
+                    #url = plparser.parse(filename=url, filedata=file).Tracks[0].File
                 except Exception as msg:
                     print(msg)    
             self.playing_name = self.items[item].get("name")  
@@ -225,8 +225,15 @@ class SelectStation(QDialog):
         self.changeLabel(self.somafm_label, normalcolor, "SomaFm")
         self.changeLabel(self.local_label, highlight, "Local File")
         self.items = local.get_stations()
-        self.menu = "Local File"
-        self.sMenu.setItems(self.items)
+        if self.items != None:
+            self.menu = "Local File"
+            self.sMenu.setItems(self.items)
+        else:
+            print("No file selected")
+            self.radio.showArtist("No file selected. Try again")
+            self.menuActive = None
+            self.radio.show()
+            self.hide()
 
     def addFavorite_clicked(self):
         for item in self.favorites:
