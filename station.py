@@ -117,6 +117,7 @@ class SelectStation(QDialog):
                 print("tunein streamURL = ", url)
             else:
                 url = self.items[item].get("url")
+            # ------PARSE BEGINS------
             if (".pls" in url):
                 try:
                     print(".pls detected")
@@ -143,6 +144,7 @@ class SelectStation(QDialog):
                     print("Parsed URL: ", url)                    
                 except Exception as msg:
                     print(msg)
+            # ------PARSE ENDS------
             self.playing_name = self.items[item].get("name")  
             self.playing_url = url
             self.playing_image = self.items[item].get("image")
