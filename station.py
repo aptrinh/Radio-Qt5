@@ -68,7 +68,7 @@ class SelectStation(QDialog):
     def initFavorites():
         open('favorites.json', 'w')
         self.favorites.append({"name":"FM WING", 
-                              "url":"url": "http://mtist.as.smartstream.ne.jp/30044/livestream/playlist.m3u8",
+                              "url": "http://mtist.as.smartstream.ne.jp/30044/livestream/playlist.m3u8",
                               "image":"https://i.imgur.com/1zsbpOD.jpg",
                               "type": "audio" })
 
