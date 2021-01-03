@@ -8,7 +8,7 @@ import clockDialog
 import platform
 import queue
 
-
+import os.path
 import clock
 import mpd
 import station
@@ -80,8 +80,11 @@ class radio():
         self.labelStation.clicked.connect(self.selectStation_clicked)
         self.showArtist("")
         self.showSong("")
-        self.getLastPlayed()
-        
+        if os.path.isfile('config.cfg'):
+            self.getLastPlayed()
+        else:
+            initConfig()
+
         self.showStation(self.last_name)
         self.showTime()
         self.showPicture(self.last_image)
@@ -114,9 +117,16 @@ class radio():
         cfg.set("station", "last_image",  self.last_image)
         with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)
+    
+    def initConfig():  
+        cfg = configparser.ConfigParser()
+        cfg.add_section("station")
+        cfg.set("station", "last_url",  "https://streams.pinguinradio.com/PinguinClassics192.mp3")
+        cfg.set("station", "last_name",  "A new config file has appeared. Please choose a station")
+        cfg.set("station", "last_image",  "https://i.imgur.com/1zsbpOD.jpg")
+        with open("config.cfg", "w", encoding='utf-8') as configfile:
+            cfg.write(configfile)        
         
-        
-       
        
     def showClock(self):
         self.cDialog.show()

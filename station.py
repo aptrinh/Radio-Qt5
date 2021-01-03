@@ -31,7 +31,10 @@ class SelectStation(QDialog):
         self.somafm_label = self.createLabel(15, 215, normalcolor,"SomaFm", self.somafm_clicked)
         self.local_label = self.createLabel(15, 265, normalcolor, "Local File", self.local_clicked)
         self.savedLocal_label = self.createLabel(15, 325, normalcolor, "Last Local", self.savedLocal_clicked)
-        self.readFavorites()
+        if os.path.isfile('favorites.json'):
+            self.readFavorites()
+        else:
+            open('favorites.json', 'w')
         self.readPinguin()
         self.items = self.favorites
         self.tuneIn = tunein.openRadio()
