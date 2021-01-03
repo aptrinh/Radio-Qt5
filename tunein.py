@@ -48,7 +48,7 @@ class openRadio(object):
         try:
             req = urllib.request.urlopen(url)
             res = req.read().decode('utf-8')
-            print(res)
+            print("URL stack includes:\n",res)
             result = res
         except Exception as msg:
             print(msg)
