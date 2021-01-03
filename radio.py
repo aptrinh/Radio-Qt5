@@ -250,7 +250,8 @@ class radio():
             if song != None:
                 song = song.split('-')
                 self.showArtist(song[0])
-                self.showSong(song[1])
+                if len (song) > 1:
+                    self.showSong(song[1])
                
         
     #################################################################################################
