@@ -57,8 +57,19 @@ def get_stations():
 #file = req.read()
 
 #print(plparser.parse(filename=playlist, filedata=file).Tracks[0].File)
-
-   
+# Regex test below
+# import urllib
+# import re
+# url = "http://floyd.wcbn.org/wcbn-hd.m3u"
+# req = urllib.request.urlopen(url)
+# file = req.read()
+# decodedFile = file.decode()
+# print ("Pre-parsed URL", decodedFile)
+# print ("file is type", type(decodedFile))
+# pattern = re.compile("ht.+(?=\r)")
+# parsed = pattern.findall(decodedFile)
+# print(parsed)
+# #print("Parsed URL: ", parsed[0])   
         
 
     

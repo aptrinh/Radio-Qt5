@@ -13,6 +13,7 @@ import urllib
 import soma
 import platform
 import local
+import re
 
 selectXpos = 250
 normalcolor = "#f9e0c3"
@@ -113,15 +114,35 @@ class SelectStation(QDialog):
             print("Item selected: " + str(item))
             if self.menu == "tuneIn":
                 url = self.tuneIn.getStreamUrl(self.items[item].get("url")).splitlines()[0]
+                print("tunein streamURL = ", url)
             else:
                 url = self.items[item].get("url")
-            if (".pls" in url) or (".m3u" in url):
+            if (".pls" in url):
                 try:
+                    print(".pls detected")
                     req = urllib.request.urlopen(url)
                     file = req.read()
-                    #url = plparser.parse(filename=url, filedata=file).Tracks[0].File
+                    decodedFile = file.decode() # From bytes to str
+                    #print ("Pre-parsed URL", decodedFile)
+                    #print ("file is type", type(decodedFile))
+                    pattern = re.compile("ht.+(?=\r)")
+                    url = pattern.findall(decodedFile)[0] # Get only the first url of the list
+                    print("Parsed URL: ", url)                    
                 except Exception as msg:
-                    print(msg)    
+                    print(msg)
+            if (".m3u" in url):
+                try:
+                    print(".m3u detected")
+                    req = urllib.request.urlopen(url)
+                    file = req.read()
+                    decodedFile = file.decode() # From bytes to str
+                    #print ("Pre-parsed URL", decodedFile)
+                    #print ("file is type", type(decodedFile))
+                    pattern = re.compile("ht.+")
+                    url = pattern.findall(decodedFile)[0] # Get only the first url of the list
+                    print("Parsed URL: ", url)                    
+                except Exception as msg:
+                    print(msg)
             self.playing_name = self.items[item].get("name")  
             self.playing_url = url
             self.playing_image = self.items[item].get("image")
