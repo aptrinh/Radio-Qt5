@@ -3,6 +3,7 @@ from PyQt5 import QtCore
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtGui import QIcon, QPixmap
 
+import os.path
 import labelClickable
 import stationDialog
 import selectmenu
