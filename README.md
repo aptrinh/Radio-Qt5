@@ -32,7 +32,12 @@ audio_output {
 ```
 
 ### **Linux**
-Just git clone and run as python. Install prereqs as needed
+Just git clone and run as python. Install prereqs as needed. Tested on **Arch** and **Manjaro**.
+
+(btw)
+
+### **MacOS**
+I don't have a Mac. Feel free to test and let me know if there are problems
 
 ----
 
