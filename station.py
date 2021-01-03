@@ -35,7 +35,7 @@ class SelectStation(QDialog):
         if os.path.isfile('favorites.json'):
             self.readFavorites()
         else:
-            open('favorites.json', 'w')
+            initFavorites()
         self.readPinguin()
         self.items = self.favorites
         self.tuneIn = tunein.openRadio()
@@ -65,7 +65,13 @@ class SelectStation(QDialog):
     def powerButton_clicked(self):
         self.radio.showClock()
         
-        
+    def initFavorites():
+        open('favorites.json', 'w')
+        self.favorites.append({"name":"FM WING", 
+                              "url":"url": "http://mtist.as.smartstream.ne.jp/30044/livestream/playlist.m3u8",
+                              "image":"https://i.imgur.com/1zsbpOD.jpg",
+                              "type": "audio" })
+
     def readFavorites(self):
         try:
             with open("favorites.json") as json_data:
@@ -265,7 +271,7 @@ class SelectStation(QDialog):
     def addFavorite_clicked(self):
         for item in self.favorites:
             if (item.get("url") == self.playing_url) or  (self.playing_url == ""):
-                return #already i playlist
+                return #already in playlist
             
         self.favorites.append({"name":self.playing_name, 
                               "url":self.playing_url,
