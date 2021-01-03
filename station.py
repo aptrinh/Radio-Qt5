@@ -67,12 +67,13 @@ class SelectStation(QDialog):
         self.radio.showClock()
         
     def initFavorites(self):
+        favorites =[]
         with open("favorites.json", "w") as json_data:
-            self.favorites.append({"name":"FM WING", 
+            favorites.append({"name":"FM WING", 
                     "url": "http://mtist.as.smartstream.ne.jp/30044/livestream/playlist.m3u8",
                     "image":"https://i.imgur.com/1zsbpOD.jpg",
                     "type": "audio" })
-            json.dump(self.favorites, json_data, indent=4)
+            json.dump(favorites, json_data, indent=4)
         json_data.close()
 
     def readFavorites(self):
