@@ -83,7 +83,8 @@ class radio():
         if os.path.isfile('config.cfg'):
             self.getLastPlayed()
         else:
-            initConfig()
+            self.initConfig()
+            self.getLastPlayed()
 
         self.showStation(self.last_name)
         self.showTime()
@@ -118,7 +119,7 @@ class radio():
         with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)
     
-    def initConfig():  
+    def initConfig(self):  
         cfg = configparser.ConfigParser()
         cfg.add_section("station")
         cfg.set("station", "last_url",  "https://streams.pinguinradio.com/PinguinClassics192.mp3")
