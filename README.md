@@ -12,7 +12,8 @@ This is an Internet Radio player built on PyQt5/tkinter and Python.
 
 ## Installation
 ``` 
-git clone https://github.com/aptrinh/Radio-Qt5 
+git clone https://github.com/aptrinh/Radio-Qt5
+cd Radio-Qt5 
 python pyqtradio.py
 ```
 ### **Windows**
@@ -32,7 +33,12 @@ audio_output {
 ```
 
 ### **Linux**
-Just git clone and run as python. Install prereqs as needed. Tested on **Arch** and **Manjaro**.
+
+- Option 1:  
+Just git clone, cd to dir and run as python. Install prereqs as needed. Tested on **Arch** and **Manjaro**.
+
+- Option 2:  
+Download the .zip, go to the extracted folder and ```./pyqtradio``` to save time.
 
 (btw)
 
