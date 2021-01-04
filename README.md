@@ -32,13 +32,13 @@ audio_output {
 }
 ```
 
-### **Linux**
-
+### **Linux**  
+Double check to make sure mpd is running before starting up player. Then choose from below:
 - Option 1:  
-Just git clone, cd to dir and run as python. Install prereqs as needed. Tested on **Arch** and **Manjaro**.
+Just git clone, cd to dir and run as python. Install prereqs as needed. Tested on **Arch** and **Manjaro**. Smaller folder size.
 
 - Option 2:  
-Download the .zip, go to the extracted folder and ```./pyqtradio``` to save time.
+Download the .zip, go to the extracted folder and ```./pyqtradio``` to save time. Bigger folder size.
 
 (btw)
 
@@ -47,7 +47,9 @@ I don't have a Mac. Feel free to test and let me know if there are problems
 
 ----
 
-## Usage
+## Usage  
+**Again, make sure mpd is running somewhere, otherwise player won't start.**
+
 Click on the station name to choose from a list of stations. If the program doesn't crash and you can't hear anything, that station just might not be broadcasting at the moment. Pick another one!
 
 Included are TuneIn, SomaFM and Pinguin options for easy navigation. You can also upload your own URLs under **playlist** format (currently only .xspf is supported). Other playlist types can work too, but you need to convert them to .xspf with VLC first.
