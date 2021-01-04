@@ -123,7 +123,7 @@ class radio():
         cfg = configparser.ConfigParser()
         cfg.add_section("station")
         cfg.set("station", "last_url",  "https://streams.pinguinradio.com/PinguinClassics192.mp3")
-        cfg.set("station", "last_name",  "Click on station name for menu")
+        cfg.set("station", "last_name",  "Click on here for menu")
         cfg.set("station", "last_image",  "https://i.imgur.com/1zsbpOD.jpg")
         with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)        
