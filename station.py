@@ -131,7 +131,7 @@ class SelectStation(QDialog):
                     print("Parsed URL: ", url)                    
                 except Exception as msg:
                     print(msg)
-            if (".m3u" in url):
+            if (".m3u" in url and not (".m3u8" in url)):
                 try:
                     print(".m3u detected")
                     req = urllib.request.urlopen(url)
