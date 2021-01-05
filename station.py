@@ -113,7 +113,7 @@ class SelectStation(QDialog):
         if self.items[item].get("type") == "audio":
             print("Item selected: " + str(item))
             # ------Case TuneIn------
-            if self.menu.lower == ("tuneIn"):
+            if self.menu == ("tuneIn"):
                 url = self.tuneIn.getStreamUrl(self.items[item].get("url")).splitlines()[0]
                 #-- .PLS STARTS --#
                 if (".pls" in url):
