@@ -60,13 +60,13 @@ def get_stations():
 # Regex test below
 # import urllib
 # import re
-# url = "http://floyd.wcbn.org/wcbn-hd.m3u"
+# url = "https://api.somafm.com/beatblender130.pls"
 # req = urllib.request.urlopen(url)
 # file = req.read()
 # decodedFile = file.decode()
 # print ("Pre-parsed URL", decodedFile)
 # print ("file is type", type(decodedFile))
-# pattern = re.compile("ht.+(?=\r)")
+# pattern = re.compile("http.+")
 # parsed = pattern.findall(decodedFile)
 # print(parsed)
 # #print("Parsed URL: ", parsed[0])   

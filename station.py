@@ -112,12 +112,30 @@ class SelectStation(QDialog):
     def itemSelected(self, item):
         if self.items[item].get("type") == "audio":
             print("Item selected: " + str(item))
-            if self.menu == "tuneIn":
+            # ------Case TuneIn------
+            if self.menu.lower == ("tuneIn"):
                 url = self.tuneIn.getStreamUrl(self.items[item].get("url")).splitlines()[0]
-                print("tunein streamURL = ", url)
+                #-- .PLS STARTS --#
+                if (".pls" in url):
+                    try:
+                        print(" TuneIn .pls detected")
+                        req = urllib.request.urlopen(url)
+                        file = req.read()
+                        decodedFile = file.decode() # From bytes to str
+                        #print ("Pre-parsed URL", decodedFile)
+                        #print ("file is type", type(decodedFile))
+                        pattern = re.compile("http.+(?=\r)")
+                        url = pattern.findall(decodedFile)[0] # Get only the first url of the list
+                        print("Parsed URL: ", url)                    
+                    except Exception as msg:
+                        print(msg)
+                #-- .PLS ENDS --#
+                print("tunein streamURL = ", url)                
+            # ------Case TuneIn ends------
             else:
                 url = self.items[item].get("url")
-            # ------PARSE BEGINS------
+                print(self.menu + " Playlist URL = " + url)
+            # ------PARSE STARTS - OTHER CASES------
             if (".pls" in url):
                 try:
                     print(".pls detected")
@@ -126,9 +144,10 @@ class SelectStation(QDialog):
                     decodedFile = file.decode() # From bytes to str
                     #print ("Pre-parsed URL", decodedFile)
                     #print ("file is type", type(decodedFile))
-                    pattern = re.compile("ht.+(?=\r)")
+                    pattern = re.compile("http.+")
                     url = pattern.findall(decodedFile)[0] # Get only the first url of the list
-                    print("Parsed URL: ", url)                    
+                    print(self.menu + " - Parsed URL: ", url)
+                    print("----")                    
                 except Exception as msg:
                     print(msg)
             if (".m3u" in url and not (".m3u8" in url)):
@@ -141,10 +160,11 @@ class SelectStation(QDialog):
                     #print ("file is type", type(decodedFile))
                     pattern = re.compile("ht.+")
                     url = pattern.findall(decodedFile)[0] # Get only the first url of the list
-                    print("Parsed URL: ", url)                    
+                    print(self.menu + " - Parsed URL: ", url)
+                    print("----")                    
                 except Exception as msg:
                     print(msg)
-            # ------PARSE ENDS------
+            # ------PARSE ENDS - OTHER CASES------
             self.playing_name = self.items[item].get("name")  
             self.playing_url = url
             self.playing_image = self.items[item].get("image")
