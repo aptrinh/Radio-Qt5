@@ -53,17 +53,17 @@ class SelectStation(QDialog):
         
         
         self.pow_button = self.createIconLabel(20, 415, normalcolor, "", self.powerButton_clicked)
-        pixmap = QtGui.QPixmap("./assets/power.png")
+        pixmap = QtGui.QPixmap("./assets/power2.png")
         #self.pow_button.resize(50, 50)
         self.pow_button.setPixmap(pixmap.scaled(self.pow_button.size(), QtCore.Qt.IgnoreAspectRatio))
         
         self.favmin_button = self.createIconLabel(85, 414, normalcolor, "", self.deleteFavorite_clicked)
-        pixmap = QtGui.QPixmap("./assets/minus.png")
+        pixmap = QtGui.QPixmap("./assets/heart-remove.png")
         #self.set_button.resize(50, 50)
         self.favmin_button.setPixmap(pixmap.scaled(self.favmin_button.size(), QtCore.Qt.IgnoreAspectRatio))
     
         self.favplus_button = self.createIconLabel(150, 414, normalcolor, "", self. addFavorite_clicked)
-        pixmap = QtGui.QPixmap("./assets/plus.png")
+        pixmap = QtGui.QPixmap("./assets/heart-add.png")
         #self.fav_button.resize(50, 50)
         self.favplus_button.setPixmap(pixmap.scaled(self.favplus_button.size(), QtCore.Qt.IgnoreAspectRatio))
         
