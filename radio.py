@@ -59,8 +59,13 @@ class radio():
             print("No ARM, so no Raspberry")
             
         self.sDialog = station.SelectStation()
-        dia.setStyleSheet("QWidget#Dialog {background-image: url(radio-cropped.png);}")
-        #dia.setStyleSheet("QWidget#Dialog {background-color: black;}")
+        if not os.path.isfile('radio-cropped.png'):
+            print("radio-cropped.png not found, using default color")
+            dia.setStyleSheet("QWidget#Dialog {background-color: #aca590;}")
+            #dia.setStyleSheet("QWidget#Dialog {background-image: url(https://i.imgur.com/RQ9vQcB.png);}")
+        else:
+            dia.setStyleSheet("QWidget#Dialog {background-image: url(radio-cropped.png);}")
+
         self.cDialog = clock.Clock(self)
         
         self.infoTimer = QtCore.QTimer()

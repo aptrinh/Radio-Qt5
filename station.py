@@ -25,7 +25,11 @@ class SelectStation(QDialog):
         self.menuActive = None
         self.selectStation = stationDialog.Ui_SelectDialog()
         self.selectStation.setupUi(self)
-        self.setStyleSheet("QWidget#SelectDialog {background-image: url(radio-cropped.png);}")
+        if not os.path.isfile('radio-cropped.png'):
+            print("radio-cropped.png not found, using default color")
+            self.setStyleSheet("QWidget#SelectDialog {background-color: #aca590;}")
+        else:
+            self.setStyleSheet("QWidget#SelectDialog {background-image: url(radio-cropped.png);}")
         self.createLabel(15, 15, normalcolor, "Back", self.backButton_clicked)
         self.fav_label = self.createLabel(15, 65, highlight, "Favorites", self.favorites_clicked)
         self.pinguin_label = self.createLabel(15, 115, normalcolor, "Pinguin", self.pinguin_clicked)
