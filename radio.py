@@ -105,14 +105,22 @@ class radio():
         print("Starting")
         self.play(self.number)
         self.status = "playing"
+        self.showVolume(self.last_volume)
+        self.gui.sliderVolume.valueChanged.connect(self.changeVolume)
         self.getShowInfo()
-       
+
+    #################################################################################################
+
+    
+
+
     def getLastPlayed(self):
         cfg = configparser.ConfigParser()
         cfg.read("config.cfg")
         self.lasturl = cfg.get("station", "last_url", raw=True)
         self.last_name = cfg.get("station", "last_name", raw=True)
         self.last_image = cfg.get("station", "last_image", raw=True)
+        self.last_volume = cfg.get("status", "last_volume", raw=True)
  
         
     def setLastPlayed(self):  
@@ -123,17 +131,47 @@ class radio():
         cfg.set("station", "last_image",  self.last_image)
         with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)
+
+    def setLastVolume(self):  
+        cfg = configparser.ConfigParser()
+        cfg.add_section("status")
+        cfg.set("status", "last_volume",  str(self.last_volume))
+        with open("config.cfg", "a", encoding='utf-8') as configfile: # Append instead of Write
+            cfg.write(configfile)    
     
     def initConfig(self):  
         cfg = configparser.ConfigParser()
         cfg.add_section("station")
+        cfg.add_section("status")
         cfg.set("station", "last_url",  "https://streams.pinguinradio.com/PinguinClassics192.mp3")
         cfg.set("station", "last_name",  "Click on here for menu")
         cfg.set("station", "last_image",  "https://i.imgur.com/1zsbpOD.jpg")
+        cfg.set("status", "last_volume",  "100")
         with open("config.cfg", "w", encoding='utf-8') as configfile:
             cfg.write(configfile)        
-        
-       
+
+    def showVolume(self, volume):
+        self.last_volume = volume
+        self.connect()
+        try:
+            self.gui.sliderVolume.setValue(int(self.last_volume))
+            self.client.setvol(int(self.last_volume))
+            print("Current Volume: " + self.client.status()['volume'])
+        except:
+            print("could not display volume")
+        self.disconnect()
+
+    def changeVolume(self, value):
+        self.connect()
+        try:
+            volume = int(self.gui.sliderVolume.sliderPosition())
+            self.client.setvol(volume)
+            print("Volume changed to: " + self.client.status()['volume'])
+        except:
+            print("can't change volume")
+        self.disconnect()
+        self.last_volume = volume
+
     def showClock(self):
         self.cDialog.show()
         
@@ -194,7 +232,7 @@ class radio():
             print("could not play")
         self.disconnect()    
     
-    def playAfterSandby(self):
+    def playAfterStandby(self):
         self.clear()
         self.addStation(self.lasturl)
         time.sleep(0.5)
@@ -205,6 +243,7 @@ class radio():
         self.connect()
         try:
             self.client.play(number)
+            #print("Volume: " + self.client.status()['volume'])
         except: 
             print("could not play")
         self.status = "playing"
@@ -246,6 +285,7 @@ class radio():
         except:
             pass
         self.status = "stopped"
+        self.setLastVolume()
     
        
     def getShowInfo(self):

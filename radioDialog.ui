@@ -68,6 +68,9 @@
      <kerning>true</kerning>
     </font>
    </property>
+   <property name="whatsThis">
+    <string>It's a clock</string>
+   </property>
    <property name="text">
     <string>22:22</string>
    </property>
@@ -98,10 +101,13 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>210</y>
+     <y>190</y>
      <width>59</width>
      <height>14</height>
     </rect>
+   </property>
+   <property name="whatsThis">
+    <string>Station Image</string>
    </property>
    <property name="text">
     <string>Pic</string>
@@ -133,6 +139,28 @@
    </property>
    <property name="text">
     <string>-</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="sliderVolume">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>370</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="whatsThis">
+    <string>Volume Slider</string>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="pageStep">
+    <number>5</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>
