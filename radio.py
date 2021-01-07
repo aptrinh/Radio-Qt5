@@ -126,18 +126,14 @@ class radio():
     def setLastPlayed(self):  
         cfg = configparser.ConfigParser()
         cfg.add_section("station")
+        cfg.add_section("status")
         cfg.set("station", "last_url",  self.lasturl)
         cfg.set("station", "last_name",  self.last_name)
         cfg.set("station", "last_image",  self.last_image)
-        with open("config.cfg", "w", encoding='utf-8') as configfile:
-            cfg.write(configfile)
-
-    def setLastVolume(self):  
-        cfg = configparser.ConfigParser()
-        cfg.add_section("status")
         cfg.set("status", "last_volume",  str(self.last_volume))
-        with open("config.cfg", "a", encoding='utf-8') as configfile: # Append instead of Write
-            cfg.write(configfile)    
+        with open("config.cfg", "w+", encoding='utf-8') as configfile:
+            cfg.write(configfile)
+        configfile.close()  
     
     def initConfig(self):  
         cfg = configparser.ConfigParser()
@@ -170,7 +166,7 @@ class radio():
         except:
             print("can't change volume")
         self.disconnect()
-        self.last_volume = volume
+        self.last_volume = volume # Final change to last_volume is recorded
 
     def showClock(self):
         self.cDialog.show()
@@ -285,7 +281,7 @@ class radio():
         except:
             pass
         self.status = "stopped"
-        self.setLastVolume()
+        self.setLastPlayed()
     
        
     def getShowInfo(self):
