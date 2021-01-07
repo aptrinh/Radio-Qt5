@@ -306,7 +306,7 @@ class SelectStation(QDialog):
         self.changeLabel(self.pinguin_label, normalcolor, "Pinguin")
         self.changeLabel(self.tuneIn_label, normalcolor, "TuneIn") 
         self.changeLabel(self.somafm_label, normalcolor, "SomaFm")
-        self.changeLabel(self.local_label, normalcolor, "Local File")
+        self.changeLabel(self.local_label, highlight, "Local File")
         self.items = local.get_savedLocal()
         if self.items != None:
             self.menu = "Last Local"
