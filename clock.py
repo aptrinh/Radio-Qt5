@@ -41,7 +41,7 @@ class Clock(QDialog):
         if "arm" in platform.machine(): 
             import rpi_backlight as bl
             bl.set_brightness(100)
-        self.radio.playAfterSandby()
+        self.radio.playAfterStandby()
         time.sleep(0.2)  
         super().hide()
         time.sleep(0.2)  
